@@ -2,7 +2,7 @@
   "name": "release-cli",
   "version": "0.0.1",
   "bin": {
-    "release-cli": "dist/packages/release-cli/index.js"
+    "release-cli":"./src/index.js"
   },
   "dependencies": {
     "chalk": "^5.3.0",
