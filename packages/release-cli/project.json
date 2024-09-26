@@ -14,6 +14,18 @@
         "tsConfig": "packages/release-cli/tsconfig.lib.json",
         "assets": ["packages/release-cli/*.md"]
       }
+    },
+    "start": {
+      "executor": "@nx/workspace:run-commands",
+      "options": {
+        "commands": ["dist/packages/release-cli/index.js"]
+      }
+    },
+    "prepare": {
+      "executor": "@nx/workspace:run-commands",
+      "options": {
+        "commands": ["yarn build"]
+      }
     }
   }
 }
