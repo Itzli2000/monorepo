@@ -68,18 +68,18 @@ const releaseCommand: CommandModule<object, ReleaseArgs> = {
       const branchName = `release/${releaseType}-${issueId}`;
       GitService.createBranch(branchName);
 
-      VersionService.updateVersion(releaseType, issueId);
+      VersionService.updateVersion(releaseType);
 
-      ChangelogService.generateChangelog();
+      ChangelogService.generateChangelog(releaseType);
 
       logger.info('Agregando archivos al commit...');
-      if (shell.exec('git add CHANGELOG.md package.json package-lock.json').code !== 0) {
+      if (shell.exec('git add CHANGELOG.md package.json').code !== 0) {
         throw new Error('No se pudieron agregar los archivos al commit.');
       }
 
-      let commitMessage = '';
+      let commitMessage = 'chore';
       if (commitDetails.scope) {
-        commitMessage += `(${commitDetails.scope}) `;
+        commitMessage += `(${commitDetails.scope}): `;
       }
       commitMessage += commitDetails.title;
 

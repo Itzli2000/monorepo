@@ -2,9 +2,9 @@ import * as shell from 'shelljs';
 import logger from '../utils/logger';
 
 class ChangelogService {
-  public generateChangelog(): void {
+  public generateChangelog(releaseType: string): void {
     logger.info('Generando changelog...');
-    const command = `npx conventional-changelog -p angular -i CHANGELOG.md -s`;
+    const command = `npx changelog ${releaseType} -x other,build,ci,chore,refactor,revert`;
     if (shell.exec(command).code !== 0) {
       throw new Error('No se pudo generar el changelog.');
     }

@@ -31,7 +31,9 @@ class GitService {
 
   public commitChanges(commitMessage: string): void {
     logger.info('Creando commit...');
-    if (shell.exec(`git commit -m "${commitMessage}"`).code !== 0) {
+    const command = `git commit -m "${commitMessage}"`;
+    logger.info(command);
+    if (shell.exec(command).code !== 0) {
       throw new Error('No se pudo crear el commit.');
     }
   }
