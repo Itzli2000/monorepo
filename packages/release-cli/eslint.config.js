@@ -8,7 +8,7 @@ module.exports = [
       '@nx/dependency-checks': [
         'error',
         {
-          ignoredDependencies: ["shelljs", "generate-changelog", "inquirer", "yargs", "chalk"], 
+          ignoredDependencies: ["shelljs", "generate-changelog", "inquirer", "yargs", "kleur"], 
           ignoredFiles: ['{projectRoot}/eslint.config.{js,cjs,mjs}'],
         },
       ],

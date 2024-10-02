@@ -1,18 +1,18 @@
-import chalk from 'chalk';
+import kleur from 'kleur';
 
 class Logger {
   public info(message: string): void {
-    console.log(chalk.blue('INFO:'), message);
+    console.log(kleur.blue('INFO:'), message);
   }
 
   public success(message: string): void {
-    console.log(chalk.green('SUCCESS:'), message);
+    console.log(kleur.green('SUCCESS:'), message);
   }
 
   public error(message: string, error?: string): void {
-    console.error(chalk.red('ERROR:'), message);
+    console.error(kleur.red('ERROR:'), message);
     if (error) {
-      console.error(chalk.red(error));
+      console.error(kleur.red(error));
     }
   }
 }

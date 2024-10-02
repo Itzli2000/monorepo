@@ -16,15 +16,25 @@
       }
     },
     "start": {
-      "executor": "@nx/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
-        "commands": ["dist/packages/release-cli/index.js"]
+        "commands": [
+          "nx prepare release-cli",
+          "node dist/packages/release-cli/src/index.js"
+        ],
+        "parallel": false
       }
     },
     "prepare": {
-      "executor": "@nx/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
-        "commands": ["yarn build"]
+        "command": "nx build release-cli"
+      }
+    },
+    "run-script": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "ts-node packages/release-cli/src/index.ts"
       }
     }
   }

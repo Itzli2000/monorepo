@@ -1,6 +1,6 @@
 import logger from '../utils/logger';
 
-jest.mock('chalk', () => ({
+jest.mock('kleur', () => ({
   __esModule: true,
   default: {
     blue: (msg: string) => msg,
